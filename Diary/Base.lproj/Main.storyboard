@@ -93,7 +93,7 @@
         <!--일기 작성-->
         <scene sceneID="FoS-r2-cD1">
             <objects>
-                <viewController id="5YQ-uO-7jC" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDiaryViewController" id="5YQ-uO-7jC" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iXH-Qo-0Ma">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +303,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="QeY-ae-Lhi">
             <objects>
-                <viewController id="pER-cW-5ZA" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="pER-cW-5ZA" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2db-jh-071">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -366,6 +366,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="수정"/>
+                                        <connections>
+                                            <action selector="tapEditButton:" destination="pER-cW-5ZA" eventType="touchUpInside" id="nfZ-Le-G2E"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuT-lf-TGH">
                                         <rect key="frame" x="98.5" y="0.0" width="48.5" height="31"/>
@@ -373,6 +376,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="삭제">
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapDeleteButton:" destination="pER-cW-5ZA" eventType="touchUpInside" id="Zbm-xM-8Es"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -396,6 +402,11 @@
                             <constraint firstItem="NWb-dV-EmM" firstAttribute="top" secondItem="z9l-dV-GQm" secondAttribute="top" constant="24" id="xnV-U4-jdT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="tn0-e1-X0s" id="g4A-Re-M1Y"/>
+                        <outlet property="dateLabel" destination="Uj1-g3-4sh" id="69m-9C-SaF"/>
+                        <outlet property="titleLabel" destination="no5-y7-e9B" id="lVU-iO-4a0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7E-Gp-IGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
