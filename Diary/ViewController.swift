@@ -27,6 +27,13 @@ class ViewController: UIViewController {
             name: NSNotification.Name("editDiary"),
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(starDiaryNotification(_:)),
+            name: NSNotification.Name("starDiary"),
+            object: nil
+        )
     }
     
     // 콜렉션 뷰 속성 설정
@@ -45,6 +52,13 @@ class ViewController: UIViewController {
             $0.date.compare($1.date) == .orderedDescending
         }
         self.collectionView.reloadData()
+    }
+
+    @objc func starDiaryNotification(_ notification: Notification) {
+        guard let starDiary = notification.object as? [String: Any] else { return }
+        guard let isStar = starDiary["isStar"] as? Bool else { return }
+        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        self.diaryList[indexPath.row].isStar = isStar
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -140,7 +154,7 @@ extension ViewController: DiaryDetailViewDelegate {
         self.diaryList.remove(at: indexPath.row)
         self.collectionView.deleteItems(at: [indexPath])
     }
-    func didSelectStar(indexPath: IndexPath, isStar: Bool) {
-        self.diaryList[indexPath.row].isStar = isStar
-    }
+//    func didSelectStar(indexPath: IndexPath, isStar: Bool) {
+//        self.diaryList[indexPath.row].isStar = isStar
+//    }
 }
