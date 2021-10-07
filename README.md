@@ -10,6 +10,7 @@
 - 즐겨찾기로 지정한 일기를 즐겨찾기 탭에서 콜렉션 뷰로 띄워줄 수 있다
 - 즐겨찾기 탭에서 각각 셀들을 선택했을 때, 상세보기 뷰에서 내용을 볼 수 있다
 - 일기의 삭제를 delegate로 전달하는 것이 아닌 NotificationCenter로 전달할 수 있다
+- 즐겨찾기 탭에서도 수정, 삭제 여부를 NotificationCenter로 전달할 수 있다
 
 ## 활용 기술
 - UITabBarController
